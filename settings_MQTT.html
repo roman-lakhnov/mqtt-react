@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ua"><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1251">
+	<style>
+		h2 {text-align: center;}
+		form {text-align: center;}
+	</style>
+</head>
+<body>
+	<h2>Сторінка налаштувань функції MQTT</h2>
+	<form action="settings_MQTT.cgi" method="post" target="_blank">
+	<fieldset>
+		<legend>Налаштування:</legend>
+			<label for="Enable">Увімкнути функцію MQTT:</label>
+			<input type="radio" name="MQTT" value="on" checked="checked"> Так
+			<input type="radio" name="MQTT" value="off"> Ні<br><br>
+			<label for="login">Логін:</label>
+			<input type="text" id="login" name="login" maxlength="30"><br><br>
+			<label for="pass">Пароль:</label>
+			<input type="password" id="pass" name="pass" maxlength="30"><br><br>
+			<label for="ip_addr">IP Адреса серверу:</label>
+			<input type="text" id="ip_addr" name="ip_addr" minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"><br><br>
+			<label for="port">Порт  серверу :</label>
+			<input type="number" id="port" name="port" min="1" max="65535" placeholder="за замовченням 1883"><br><br>
+			<input type="submit" value="Застосувати">
+	</fieldset>
+	</form>
+
+
+</body></html>
