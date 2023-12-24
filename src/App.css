@@ -1,38 +1,118 @@
-.App {
+div, fieldset, input, select {
+  padding: 5px;
+  font-size: 1em;
+}
+fieldset {
+  background: #4f4f4f;
+}
+p {
+  margin: 0.5em 0;
+}
+input {
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background: #dddddd;
+  color: #000000;
+}
+input[type=checkbox], input[type=radio] {
+  width: 1em;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+input[type=range] {
+  width: 99%;
+}
+select {
+  width: 100%;
+  background: #dddddd;
+  color: #000000;
+}
+textarea {
+  resize: vertical;
+  width: 98%;
+  height: 318px;
+  padding: 5px;
+  overflow: auto;
+  background: #1f1f1f;
+  color: #65c115;
+}
+body {
   text-align: center;
+  font-family: verdana, sans-serif;
+  background: #252525;
+}
+td {
+  padding: 0px;
+}
+button {
+  border: 0;
+  border-radius: 0.3rem;
+  background: #1fa3ec;
+  color: #faffff;
+  line-height: 2.4rem;
+  font-size: 1.2rem;
+  width: 100%;
+  cursor: pointer;
+  transition-duration: 0.4s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button:hover {
+  background: #0e70a4;
+}
+.bred {
+  background: #d43535;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.bred:hover {
+  background: #931f1f;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.bgrn {
+  background: #47c266;
 }
 
-.App-link {
-  color: #61dafb;
+.bgrn:hover {
+  background: #5aaf6f;
+}
+a {
+  color: #1fa3ec;
+  text-decoration: none;
+}
+.p {
+  float: left;
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.q {
+  float: right;
+  text-align: right;
+}
+
+.r {
+  border-radius: 0.3em;
+  padding: 2px;
+  margin: 6px 2px;
+}
+
+.pick-variant {
+  margin-bottom: 16px;
+}
+
+.date_pick {
+  display: inline-block;
+  width: 33%;
+}
+
+#drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  width: 480px;
+  margin: auto;
+  padding: 20px;
+}
+
+#drop-area.highlight {
+  border-color: #1fa3ec;
 }
