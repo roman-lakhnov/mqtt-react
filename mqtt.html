@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ua">
+	<head>
+		<meta charset="UTF-8" />
+		<style>
+			h2 {
+				text-align: center;
+			}
+			form {
+				text-align: center;
+			}
+		</style>
+	<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add a 1-second delay before fetching settings
+            setTimeout(function () {
+                // Fetch settings from the server using GET request
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        // Parse the JSON response
+                        var settings = JSON.parse(xhr.responseText);
+    
+                        // Update the placeholder in the last input field
+                        var loginInput = document.getElementById('login');
+                        var passInput = document.getElementById('pass');
+                        var addrInput = document.getElementById('uri');
+                        var portInput = document.getElementById('port');
+                        var enabledRadio = document.getElementById('enabled');
+    
+                        loginInput.placeholder = settings.login;
+                        passInput.placeholder = settings.pass;
+                        addrInput.placeholder = settings.addr;
+                        portInput.placeholder = settings.port;
+                        // enabledRadio.checked = settings.enabled;
+                    }
+                };
+                xhr.open('GET', 'settings_MQTT.cgi', true);
+                xhr.send();
+            }, 2000); // 1000 milliseconds (1 second) delay
+        });
+    </script>
+    
+
+	</head>
+	<body>
+		<h2>Сторінка налаштувань функції MQTT</h2>
+		<form action="settings_MQTT.cgi" method="post" target="_blank">
+			<fieldset>
+				<legend>Налаштування:</legend>
+				<div
+					style="display: flex; flex-direction: row; justify-content: center"
+				>
+					<div
+						style="
+							display: flex;
+							flex-direction: column;
+							align-items: end;
+							justify-content: space-between;
+						"
+					>
+						<label for="Enable">Увімкнути функцію MQTT:</label>
+						<br />
+						<label for="login">Логін:</label>
+						<label for="pass">Пароль:</label>
+						<label for="uri">Адреса:</label>
+						<label for="port">Порт серверу:</label>
+					</div>
+					<div
+						style="
+							display: flex;
+							flex-direction: column;
+							margin-left: 20px;
+							width: 200px;
+						"
+					>
+						<div style="display: flex; flex-direction: row">
+							<input type="radio" name="MQTT" value="on" checked /> Так
+							<input type="radio" name="MQTT" value="off" /> Ні
+						</div>
+						<br />
+						<input type="text" id="login" name="login" maxlength="30" />
+						<input type="password" id="pass" name="pass" maxlength="30" />
+						<input
+							type="text"
+							id="uri"
+							name="uri"
+							maxlength="60"
+						/>
+						<input
+							type="number"
+							id="port"
+							name="port"
+							min="1"
+							max="65535"
+							placeholder="за замовченням 1883"
+						/>
+					</div>
+				</div>
+				<br />
+				<input type="submit" value="Застосувати" />
+			</fieldset>
+		</form>
+	</body>
+</html>

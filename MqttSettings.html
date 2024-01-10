@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ua">
+	<head>
+		<meta charset="UTF-8" />
+		<style>
+			body {
+				background-color: #222; /* Set your desired background color for the body */
+				color: #fff; /* Set your desired text color */
+			}
+
+			h2 {
+				text-align: center;
+				color: #66ccff; /* Set your desired heading color */
+			}
+
+			form {
+				text-align: center;
+			}
+
+			fieldset {
+				border: 2px solid #666; /* Set your desired border color */
+				border-radius: 8px;
+				padding: 10px;
+				max-width: 400px; /* Set your desired maximum width */
+				margin: 0 auto;
+			}
+
+			legend {
+				font-weight: bold;
+				color: #66ccff; /* Set your desired legend color */
+			}
+
+			label {
+				margin-bottom: 5px;
+				display: inline-block;
+				color: #66ccff; /* Set your desired label color */
+			}
+
+			input {
+				padding: 8px;
+				margin-bottom: 10px;
+				width: 100%;
+				box-sizing: border-box;
+				background-color: #333; /* Set your desired input background color */
+				color: #fff; /* Set your desired input text color */
+			}
+
+			input[type='radio'] {
+				margin-right: 5px;
+			}
+
+			input[type='submit'] {
+				background-color: #4caf50; /* Set your desired submit button background color */
+				color: white;
+				cursor: pointer;
+			}
+
+			input[type='submit']:hover {
+				background-color: #45a049; /* Set your desired submit button hover color */
+			}
+		</style>
+		<script>
+			// Your existing script here...
+		</script>
+	</head>
+
+	<body>
+		<h2>Сторінка налаштувань функції MQTT</h2>
+		<form action="settings_MQTT.cgi" method="post" target="_blank">
+			<fieldset>
+				<legend>Налаштування:</legend>
+				<div
+					style="display: flex; flex-direction: row; justify-content: center"
+				>
+					<div
+						style="
+							display: flex;
+							flex-direction: column;
+							align-items: end;
+							justify-content: space-between;
+						"
+					>
+						<label for="Enable">Увімкнути функцію MQTT:</label>
+						<label for="login">Логін:</label>
+						<label for="pass">Пароль:</label>
+						<label for="uri">Адреса:</label>
+						<label for="port">Порт серверу:</label>
+					</div>
+					<div
+						style="
+							display: flex;
+							flex-direction: column;
+							margin-left: 20px;
+							width: 200px;
+						"
+					>
+						<div style="display: flex; flex-direction: row">
+							<input type="radio" name="MQTT" value="on" checked /> Так
+							<input type="radio" name="MQTT" value="off" /> Ні
+						</div>
+						<input type="text" id="login" name="login" maxlength="30" />
+						<input type="password" id="pass" name="pass" maxlength="30" />
+						<input type="text" id="uri" name="uri" maxlength="60" />
+						<input
+							type="number"
+							id="port"
+							name="port"
+							min="1"
+							max="65535"
+							placeholder="за замовченням 1883"
+						/>
+					</div>
+				</div>
+				<br />
+				<input type="submit" value="Застосувати" />
+			</fieldset>
+		</form>
+	</body>
+</html>
